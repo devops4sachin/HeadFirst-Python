@@ -1,0 +1,4 @@
+ImmutableMultiDict([('phrase', 'I hope you are doing great !!'), ('letters', 'aeiou')])|127.0.0.1|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.87 Safari/537.36|{'u', 'o', 'e', 'a', 'i'}
+ImmutableMultiDict([('phrase', 'everything is right'), ('letters', 'aeiou')])|127.0.0.1|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.87 Safari/537.36|{'e', 'i'}
+ImmutableMultiDict([('phrase', 'alta vista'), ('letters', 'aeiou')])|127.0.0.1|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.87 Safari/537.36|{'a', 'i'}
+ImmutableMultiDict([('phrase', 'hi, how are you'), ('letters', 'aeiou')])|127.0.0.1|Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0|{'o', 'e', 'a', 'i', 'u'}
