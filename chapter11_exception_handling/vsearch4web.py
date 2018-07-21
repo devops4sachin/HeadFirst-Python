@@ -5,7 +5,7 @@ from vsearch import search4letters
 
 from DBcm import UseDatabase
 
-from checked import check_logged_in
+from checker import check_logged_in
 
 app = Flask(__name__)
 app.config['dbconfig'] = { 	'host': '127.0.01',
@@ -74,16 +74,21 @@ def view_the_log() -> 'html':
 
 @app.route('/viewlog')
 def view_the_log() -> 'html':
-	with UseDatabase(app.config['dbconfig']) as cursor:
-		_SQL = """ select phrase, letters, ip, browser_string, results from log"""
-		cursor.execute(_SQL)
-		contents = cursor.fetchall()
-		titles = ('Phrase', 'Letters', 'Remote_addr', 'User_agent', 'Results')
-		return render_template(	'viewlog.html',
+	try:
+		with UseDatabase(app.config['dbconfig']) as cursor:
+			_SQL = """ select phrase, letters, ip, browser_string, results from log"""
+			cursor.execute(_SQL)
+			contents = cursor.fetchall()
+			titles = ('Phrase', 'Letters', 'Remote_addr', 'User_agent', 'Results')
+			return render_template(	'viewlog.html',
 					the_title='View Log',
 					the_row_titles=titles,
 					the_data=contents,
-		)
+			)
+	except mysql.connector.erros.InterfaceError as err:
+		print('Is your database switched on ? Error: ', str(err))
+	except Exception as err:
+		print('Something went wrong', str(err))
 
 if __name__ == '__main__':
     app.run(debug=True)
